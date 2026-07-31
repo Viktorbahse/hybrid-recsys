@@ -1,0 +1,49 @@
+[project]
+name = "satellite-segmentation"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "pre-commit",
+    "polars",
+    "huggingface_hub",
+]
+
+[tool.ruff]
+# Включаем стандартные правила (Pyflakes, pycodestyle)
+select = ["E", "F", "W", "C90", "I"]
+# Игнорируем правила, которые будут перекрываться проверками WPS
+ignore = ["E402"]
+target-version = "py311"
+line-length = 120
+indent-width = 4
+output-format = "full"
+show-fixes = true
+exclude = [
+]
+
+[tool.flake8]
+exclude = [
+]
+# Оставляем только правила WPS, так как остальное проверит Ruff
+select = "WPS"
+# Настройка специфичных для WPS параметров
+max-line-length = 120
+show-source = true
+ignore = ["WPS111", "WPS420", "WPS100", "WPS201", "WPS210", "WPS230"]
+max-methods = 10
+max-line-complexity = 20
+max-module-members = 10
+
+[tool.isort]
+profile = "wemake"
+line_length = 120
+src_paths = ["src"]
+
+[tool.mypy]
+exclude = [
+    "^.venv/",
+]
+explicit_package_bases = true

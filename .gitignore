@@ -1,0 +1,12 @@
+__pycache__
+
+.ruff_cache
+.mypy_cache
+.DS_Store
+
+.python-version
+
+data/
+
+.venv/
+.ipynb_checkpoints/
